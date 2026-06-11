@@ -1,0 +1,6 @@
+# Compiled output
+out/
+*.class
+
+# Saved data created at runtime
+students.csv
