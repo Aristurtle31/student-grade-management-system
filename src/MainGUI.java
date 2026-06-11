@@ -33,7 +33,6 @@ public class MainGUI {
     private JFrame frame;
 
     public static void main(String[] args) {
-        // Swing components must be created on the event dispatch thread.
         SwingUtilities.invokeLater(() -> new MainGUI().show());
     }
 
@@ -42,7 +41,6 @@ public class MainGUI {
 
         frame = new JFrame("Student Grade Management System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Save one last time when the window is closed.
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -59,7 +57,7 @@ public class MainGUI {
         refreshTable();
 
         frame.setSize(820, 420);
-        frame.setLocationRelativeTo(null); // center on screen
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -70,7 +68,7 @@ public class MainGUI {
         JButton searchButton = new JButton("Search");
         JButton showAllButton = new JButton("Show All");
         searchButton.addActionListener(e -> refreshTable());
-        searchField.addActionListener(e -> refreshTable()); // Enter key works too
+        searchField.addActionListener(e -> refreshTable());
         showAllButton.addActionListener(e -> {
             searchField.setText("");
             refreshTable();
@@ -236,7 +234,6 @@ public class MainGUI {
     }
 
     private void showClassStats() {
-        // Only students who already have grades count toward the statistics.
         ArrayList<Student> graded = new ArrayList<>();
         for (Student student : manager.getStudents()) {
             if (!student.getGrades().isEmpty()) {

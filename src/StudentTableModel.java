@@ -49,7 +49,6 @@ public class StudentTableModel extends AbstractTableModel {
             case 1: return student.getName();
             case 2: return student.getCourse();
             case 3: return student.getGrades().size();
-            // Students with no grades yet show "--" instead of a misleading 0.
             case 4: return noGrades ? "--" : String.format("%.1f", average);
             case 5: return noGrades ? "--" : ReportGenerator.letterGrade(average);
             default: return noGrades ? "--" : ReportGenerator.passOrFail(average);

@@ -54,7 +54,6 @@ public class ReportGenerator {
         System.out.println("-".repeat(78));
         for (Student student : students) {
             int gradeCount = student.getGrades().size();
-            // Students with no grades yet show "--" instead of a misleading 0 average.
             String avg = gradeCount == 0 ? "--" : String.format("%.1f", computeAverage(student));
             String status = gradeCount == 0 ? "--" : passOrFail(computeAverage(student));
             System.out.printf(format, student.getId(), student.getName(),
@@ -85,7 +84,6 @@ public class ReportGenerator {
     /** Prints class-wide statistics: highest, lowest, and class average. */
     public static void printClassStatistics(ArrayList<Student> students) {
         System.out.println("\n--- Class Statistics ---");
-        // Only students who already have grades count toward the statistics.
         ArrayList<Student> graded = new ArrayList<>();
         for (Student student : students) {
             if (!student.getGrades().isEmpty()) {
