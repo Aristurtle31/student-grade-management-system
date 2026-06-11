@@ -1,9 +1,10 @@
 # Student Grade Management System
 
-A console-based Java application for managing student records and grades.
-Built as a group programming project demonstrating fundamental concepts:
-variables, conditionals, loops, ArrayLists, methods, input validation,
-file handling, and basic data management.
+A Java application for managing student records and grades, with **two
+interfaces sharing the same logic and data file**: a console version and
+a simple Swing GUI. Built as a group programming project demonstrating
+fundamental concepts: variables, conditionals, loops, ArrayLists,
+methods, input validation, file handling, and basic data management.
 
 ## Features
 
@@ -23,15 +24,35 @@ message and a re-prompt — the program never crashes on bad input.
 
 ## How to Run
 
-Requires Java 8 or newer (tested on Java 21).
+Requires Java 8 or newer (tested on Java 21). Compile once:
 
 ```
 javac -d out src/*.java
-java -cp out Main
 ```
 
-On the first run there is no saved data, so the system starts empty.
-Choose **0 (Save and exit)** to write your records to `students.csv`.
+Then run **either** interface:
+
+```
+java -cp out MainGUI    # graphical version (recommended for the demo)
+java -cp out Main       # console version
+```
+
+Both versions read and write the same `students.csv`, so records added
+in one appear in the other. On the first run there is no saved data, so
+the system starts empty. The GUI saves automatically after every change
+and when the window is closed; the console saves when you choose
+**0 (Save and exit)**.
+
+### GUI quick guide
+
+- The table shows every student with their average, letter grade, and status.
+- **Add Student** asks for ID, name, and course through pop-up dialogs.
+- For **Record Grade / View Details / Update / Delete**, click a row in
+  the table first, then click the button.
+- Type in the search box and press Enter (or click **Search**) to filter;
+  **Show All** clears the filter.
+- Invalid input (empty fields, duplicate IDs, non-numeric or out-of-range
+  scores) pops up a warning and asks again; Cancel backs out safely.
 
 ## Project Structure
 
@@ -43,7 +64,10 @@ Choose **0 (Save and exit)** to write your records to `students.csv`.
 | `src/StudentManager.java` | Add / update / delete / search / record grades | Member 2 |
 | `src/ReportGenerator.java` | Averages, letter grades, tables, class statistics | Member 3 |
 | `src/FileHandler.java` | Saving and loading `students.csv` | Member 4 |
-| `src/Main.java` | Menu loop and program flow | Member 5 / shared |
+| `src/Main.java` | Console menu loop and program flow | Member 5 / shared |
+| `src/MainGUI.java` | Swing window, buttons, and search bar | Member 5 / shared |
+| `src/StudentTableModel.java` | Feeds student rows into the GUI table | Member 5 / shared |
+| `src/DialogHelper.java` | Pop-up dialogs with the same validation rules | Member 5 / shared |
 
 ## Grading Logic
 

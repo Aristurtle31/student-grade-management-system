@@ -21,6 +21,10 @@ Add a screenshot for each case as testing evidence.
 | 14 | Search partial match | Search `maria` | Matching students shown in table | As expected | ✅ |
 | 15 | Data persistence | Exit with option 0, restart program | Records reloaded from `students.csv` | As expected | ✅ |
 | 16 | Student with no grades in table | View all with a freshly added student | Average and status shown as `--`, not 0/FAIL | As expected | ✅ |
+| 17 | GUI: invalid score dialog | In Record Grade dialog enter `abc`, then `150` | Warning pop-up each time, dialog re-asks | _run on a machine with a display_ | ⬜ |
+| 18 | GUI: cancel backs out | Press Cancel in the middle of Add Student | No partial student is created | _run on a machine with a display_ | ⬜ |
+| 19 | GUI: button with no row selected | Click Record Grade with nothing selected | "Select a student first" message, no crash | _run on a machine with a display_ | ⬜ |
+| 20 | GUI/console share data | Add a student in the GUI, close it, open the console version | Student appears in the console table | _run on a machine with a display_ | ⬜ |
 
 ## Edge Cases Considered
 
