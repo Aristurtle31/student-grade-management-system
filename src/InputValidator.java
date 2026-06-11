@@ -10,8 +10,6 @@ import java.util.Scanner;
  * Suggested owner: Member 1 (data model + validation)
  */
 public class InputValidator {
-    // One shared Scanner for the whole program. Opening several Scanners
-    // on System.in can swallow each other's input, so we keep exactly one.
     private static final Scanner scanner = new Scanner(System.in);
 
     /** Keeps asking until the user types something that isn't blank. */
@@ -44,7 +42,6 @@ public class InputValidator {
     public static String getValidStudentId(String prompt) {
         while (true) {
             String id = getNonEmptyString(prompt);
-            // Remove dashes before checking so IDs like "2026-0001" pass.
             if (id.replace("-", "").matches("[A-Za-z0-9]+")) {
                 return id.toUpperCase();
             }

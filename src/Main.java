@@ -22,7 +22,6 @@ public class Main {
         String[] validChoices = {"1", "2", "3", "4", "5", "6", "7", "8", "0"};
         boolean running = true;
 
-        // Main loop: show the menu until the user chooses to exit.
         while (running) {
             printMenu();
             String choice = InputValidator.getMenuChoice("Choose an option: ", validChoices);
@@ -53,7 +52,6 @@ public class Main {
                     manager.searchStudents();
                     break;
                 case "0":
-                    // Save on the way out so no work is ever lost.
                     FileHandler.save(manager.getStudents());
                     System.out.println("Goodbye!");
                     running = false;

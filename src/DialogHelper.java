@@ -18,7 +18,7 @@ public class DialogHelper {
         while (true) {
             String value = JOptionPane.showInputDialog(parent, message);
             if (value == null) {
-                return null; // user pressed Cancel
+                return null;
             }
             value = value.trim();
             if (!value.isEmpty()) {

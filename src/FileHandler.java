@@ -60,7 +60,6 @@ public class FileHandler {
             }
             System.out.println("Loaded " + students.size() + " student record(s) from " + DATA_FILE + ".");
         } catch (IOException e) {
-            // Missing file is normal on the very first run — not an error.
             System.out.println("No saved data found. Starting with an empty record list.");
         }
         return students;
@@ -68,7 +67,6 @@ public class FileHandler {
 
     /** Turns one saved line back into a Student, or null if the line is broken. */
     private static Student parseLine(String line) {
-        // Limit of 4 keeps the whole grades section together in parts[3].
         String[] parts = line.split(",", 4);
         if (parts.length < 3) {
             System.out.println("  [!] Skipping unreadable line: " + line);
