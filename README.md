@@ -87,6 +87,7 @@ and when the window is closed; the console saves when you choose
 
 ## Other Documents
 
+- [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md) — full project documentation (Section 7 requirements)
 - [`docs/TEST_PLAN.md`](docs/TEST_PLAN.md) — test cases and results (testing evidence)
 - [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) — outline for the recorded presentation
 - [`docs/CONTRIBUTION_REPORT.md`](docs/CONTRIBUTION_REPORT.md) — member contribution template
