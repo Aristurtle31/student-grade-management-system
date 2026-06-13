@@ -1,15 +1,6 @@
 import java.util.ArrayList;
 
-/**
- * Everything related to computing and displaying results: averages,
- * letter grades, the formatted student table, one student's full
- * breakdown, and class-wide statistics.
- *
- * Suggested owner: Member 3 (computation + reporting)
- */
 public class ReportGenerator {
-
-    /** Returns the average of all of a student's scores, or 0 if none yet. */
     public static double computeAverage(Student student) {
         ArrayList<Grade> grades = student.getGrades();
         if (grades.isEmpty()) {
@@ -22,7 +13,6 @@ public class ReportGenerator {
         return total / grades.size();
     }
 
-    /** Converts a numeric average into a letter grade. */
     public static String letterGrade(double average) {
         if (average >= 90) {
             return "A";
@@ -37,12 +27,10 @@ public class ReportGenerator {
         }
     }
 
-    /** A student passes when their average is 75 or higher. */
     public static String passOrFail(double average) {
         return average >= 75 ? "PASS" : "FAIL";
     }
 
-    /** Prints all students as a formatted table with averages and status. */
     public static void printStudentTable(ArrayList<Student> students) {
         if (students.isEmpty()) {
             System.out.println("  No students on record yet.");
@@ -61,7 +49,6 @@ public class ReportGenerator {
         }
     }
 
-    /** Prints one student's full grade breakdown, average, and letter grade. */
     public static void printStudentDetails(Student student) {
         System.out.println("\n--- Record for " + student.getName() + " (" + student.getId() + ") ---");
         System.out.println("Course/Section: " + student.getCourse());
@@ -81,7 +68,6 @@ public class ReportGenerator {
                 average, letterGrade(average), passOrFail(average));
     }
 
-    /** Prints class-wide statistics: highest, lowest, and class average. */
     public static void printClassStatistics(ArrayList<Student> students) {
         System.out.println("\n--- Class Statistics ---");
         ArrayList<Student> graded = new ArrayList<>();
