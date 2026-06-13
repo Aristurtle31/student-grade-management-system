@@ -1,20 +1,11 @@
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
-/**
- * Feeds student data into the JTable on the main window. Each row is one
- * student; the average, letter grade, and status columns are computed
- * live from ReportGenerator so the table always matches the console output.
- *
- * Suggested owner: Member 5 (GUI), or shared.
- */
 public class StudentTableModel extends AbstractTableModel {
     private static final String[] COLUMNS =
             {"ID", "Name", "Course", "Grades", "Average", "Letter", "Status"};
 
     private ArrayList<Student> visibleStudents = new ArrayList<>();
-
-    /** Replaces the rows shown in the table (used for search filtering too). */
     public void setStudents(ArrayList<Student> students) {
         visibleStudents = students;
         fireTableDataChanged();
