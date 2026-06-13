@@ -1,8 +1,3 @@
-/**
- * A single grade entry: one subject and the score the student earned in it.
- *
- * Suggested owner: Member 1 (data model + validation)
- */
 public class Grade {
     private final String subject;
     private final double score;
