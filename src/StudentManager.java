@@ -1,12 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Manages the list of students: adding, finding, updating, deleting,
- * searching, and recording grades. This is the "data management" core
- * of the system.
- *
- * Suggested owner: Member 2 (records + operations)
- */
 public class StudentManager {
     private final ArrayList<Student> students = new ArrayList<>();
 
@@ -14,7 +7,6 @@ public class StudentManager {
         return students;
     }
 
-    /** Returns the student with the given ID, or null if no match exists. */
     public Student findById(String id) {
         for (Student student : students) {
             if (student.getId().equalsIgnoreCase(id)) {
@@ -24,7 +16,6 @@ public class StudentManager {
         return null;
     }
 
-    /** Asks the user for the new student's details and adds them to the list. */
     public void addStudent() {
         System.out.println("\n--- Add Student ---");
         String id = InputValidator.getValidStudentId("Student ID (e.g. 2026-0001): ");
@@ -37,8 +28,7 @@ public class StudentManager {
         students.add(new Student(id, name, course));
         System.out.println("  [OK] Added " + name + " (" + id + ").");
     }
-
-    /** Records one or more subject scores for an existing student. */
+    
     public void recordGrades() {
         System.out.println("\n--- Record Grades ---");
         Student student = promptForExistingStudent();
@@ -55,7 +45,6 @@ public class StudentManager {
         }
     }
 
-    /** Lets the user change a student's name or course (the ID stays fixed). */
     public void updateStudent() {
         System.out.println("\n--- Update Student ---");
         Student student = promptForExistingStudent();
@@ -73,7 +62,6 @@ public class StudentManager {
         System.out.println("  [OK] Record updated.");
     }
 
-    /** Deletes a student after an explicit confirmation. */
     public void deleteStudent() {
         System.out.println("\n--- Delete Student ---");
         Student student = promptForExistingStudent();
@@ -90,7 +78,6 @@ public class StudentManager {
         }
     }
 
-    /** Finds students whose ID or name contains the search text. */
     public void searchStudents() {
         System.out.println("\n--- Search ---");
         String query = InputValidator.getNonEmptyString("Search by ID or name: ").toLowerCase();
@@ -109,7 +96,6 @@ public class StudentManager {
         }
     }
 
-    /** Asks for an ID and returns the matching student, or null with a message. */
     private Student promptForExistingStudent() {
         if (students.isEmpty()) {
             System.out.println("  [!] No students on record yet. Add a student first.");
