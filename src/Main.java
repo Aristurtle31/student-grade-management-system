@@ -1,15 +1,3 @@
-/**
- * Student Grade Management System
- * -------------------------------
- * A console application for keeping student records, recording grades,
- * computing averages and class statistics, and saving everything to a
- * file so the data persists between runs.
- *
- * Entry point and main menu loop.
- *
- * Suggested owner: Member 5 (menu + integration), or shared if the
- * group has fewer members.
- */
 public class Main {
     public static void main(String[] args) {
         System.out.println("==============================================");
