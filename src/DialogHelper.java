@@ -1,19 +1,7 @@
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
-/**
- * Pop-up dialog versions of the input validation rules. Same rules as
- * the console InputValidator: nothing empty, no file-separator
- * characters, IDs are letters/numbers/dashes, scores are 0-100.
- *
- * Every prompt returns null if the user presses Cancel, so callers can
- * back out of any operation safely.
- *
- * Suggested owner: Member 5 (GUI), or shared.
- */
 public class DialogHelper {
-
-    /** Keeps asking until the user types something that isn't blank. */
     public static String promptNonEmpty(Component parent, String message) {
         while (true) {
             String value = JOptionPane.showInputDialog(parent, message);
@@ -27,8 +15,7 @@ public class DialogHelper {
             warn(parent, "This field cannot be empty.");
         }
     }
-
-    /** Also rejects , ; = because those are separators in the save file. */
+    
     public static String promptFileSafe(Component parent, String message) {
         while (true) {
             String value = promptNonEmpty(parent, message);
@@ -42,7 +29,6 @@ public class DialogHelper {
         }
     }
 
-    /** Student IDs may contain letters, numbers, and dashes (e.g. 2026-0001). */
     public static String promptStudentId(Component parent, String message) {
         while (true) {
             String id = promptNonEmpty(parent, message);
@@ -56,7 +42,6 @@ public class DialogHelper {
         }
     }
 
-    /** Keeps asking until the user enters a number between 0 and 100. */
     public static Double promptScore(Component parent, String message) {
         while (true) {
             String raw = promptNonEmpty(parent, message);
@@ -77,7 +62,6 @@ public class DialogHelper {
         }
     }
 
-    /** Asks a yes/no question. Returns true only for an explicit Yes. */
     public static boolean confirm(Component parent, String message) {
         int answer = JOptionPane.showConfirmDialog(parent, message, "Please confirm",
                 JOptionPane.YES_NO_OPTION);
