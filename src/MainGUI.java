@@ -15,16 +15,6 @@ import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-/**
- * Graphical version of the Student Grade Management System, built with
- * Java Swing (no external libraries). It reuses the exact same Student,
- * Grade, ReportGenerator, and FileHandler classes as the console version
- * and shares the same students.csv data file.
- *
- * Run with:  java -cp out MainGUI
- *
- * Suggested owner: Member 5 (GUI + integration), or shared.
- */
 public class MainGUI {
     private final StudentManager manager = new StudentManager();
     private final StudentTableModel tableModel = new StudentTableModel();
@@ -95,7 +85,6 @@ public class MainGUI {
         panel.add(button);
     }
 
-    /** Re-applies the current search text and redraws the table. */
     private void refreshTable() {
         String query = searchField.getText().trim().toLowerCase();
         ArrayList<Student> visible = new ArrayList<>();
@@ -110,13 +99,11 @@ public class MainGUI {
         tableModel.setStudents(visible);
     }
 
-    /** Saves to file and redraws — called after every change so no work is lost. */
     private void saveAndRefresh() {
         FileHandler.save(manager.getStudents());
         refreshTable();
     }
 
-    /** Returns the student selected in the table, or null with a hint message. */
     private Student getSelectedStudent() {
         int row = table.getSelectedRow();
         if (row < 0) {
@@ -268,7 +255,6 @@ public class MainGUI {
         showMonospaceDialog("Class Statistics", text);
     }
 
-    /** Shows multi-line text in a fixed-width font so columns line up. */
     private void showMonospaceDialog(String title, String text) {
         JTextArea area = new JTextArea(text);
         area.setEditable(false);
