@@ -1,11 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Holds everything we know about one student: their ID, name,
- * course/section, and the list of grades they have earned so far.
- *
- * Suggested owner: Member 1 (data model + validation)
- */
 public class Student {
     private final String id;
     private String name;
